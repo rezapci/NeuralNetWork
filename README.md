@@ -242,10 +242,10 @@ def two_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 
     for i in range(0, num_iterations):
 
         # Forward propagation: LINEAR -> RELU -> LINEAR -> SIGMOID. Inputs: "X, W1, b1". Output: "A1, cache1, A2, cache2".
-        ### START CODE HERE ### (≈ 2 lines of code)
+
         A1, cache1 = linear_activation_forward(X, W1, b1, "relu")
         A2, cache2 = linear_activation_forward(A1, W2, b2, "sigmoid")
-        ### END CODE HERE ###
+
         
         # Compute cost
        
