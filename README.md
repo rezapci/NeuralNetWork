@@ -132,8 +132,8 @@ then I will compare the performance of these models, and also try out different 
 Let's look at the two architectures.
 
 ### 3.1 - 2-layer neural network
-![png](2layerNN_kiank.png)
-<img src="images/2layerNN_kiank.png" style="width:650px;height:400px;">
+
+<img src="/2layerNN_kiank.png" style="width:650px;height:400px;">
 <caption><center> <u>Figure 2</u>: 2-layer neural network. <br> The model can be summarized as: ***INPUT -> LINEAR -> RELU -> LINEAR -> SIGMOID -> OUTPUT***. </center></caption>
 
 <u>Detailed Architecture of figure 2</u>:
