@@ -600,7 +600,7 @@ print_mislabeled_images(classes, test_x, test_y, pred_test)
 ```
 
 
-![png][]
+![png](output_38_0.png)
 
 
 **A few type of images the model tends to do poorly on include:** 
@@ -637,6 +637,3 @@ print ("y = " + str(np.squeeze(my_predicted_image)) + ", my L-layer model predic
 **References**:
 
 - for auto-reloading external module: http://stackoverflow.com/questions/1907993/autoreload-of-modules-in-ipython
-
-
-![png](output_38_0.png)
