@@ -27,11 +27,6 @@ plt.rcParams['image.cmap'] = 'gray'
 
 np.random.seed(1)
 ```
-
-    /opt/conda/lib/python3.5/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
-      warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
-    /opt/conda/lib/python3.5/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
-      warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
     
 
 ## 2 - Dataset
