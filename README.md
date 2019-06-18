@@ -620,10 +620,10 @@ print_mislabeled_images(classes, test_x, test_y, pred_test)
 - Scale variation (cat is very large or small in image) 
 
 ```python
-## START CODE HERE ##
+
 my_image = "roller_cat.jpg" # change this to the name of my image file 
 my_label_y = [1] # the true class of my image (1 -> cat, 0 -> non-cat)
-## END CODE HERE ##
+
 
 fname = "images/" + my_image
 image = np.array(ndimage.imread(fname, flatten=False))
