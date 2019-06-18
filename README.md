@@ -1,8 +1,10 @@
 # NeuralNetWork
 NT Application
+"""
+Created on Sun Jun 21 11:35:18 2019
 
-
-# Deep Neural Network for Image Classification: Application
+@author: Reza Hashemi
+"""
 
 
 
