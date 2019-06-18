@@ -93,7 +93,7 @@ print ("test_y shape: " + str(test_y.shape))
     
 
 As usual, I have to reshape and standardize the images before feeding them to the network. The code is given in the cell below.
-![png](imvectorkiank.png)
+
 <img src="/imvectorkiank.png" style="width:450px;height:300px;">
 
 <caption><center> <u>Figure 1</u>: Image to vector conversion. <br> </center></caption>
