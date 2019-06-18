@@ -1,14 +1,9 @@
-# NeuralNetWork
-NT Application
-"""
-Created on Sun Jun 21 11:35:18 2019
 
-@author: Reza Hashemi
-"""
+# Deep Neural Network for Image Classification: Application
 
 
 
-I would first import all the packages that I need during this Project. 
+Let's first import all the packages that I will need during this Project. 
 - [numpy](www.numpy.org) is the fundamental package for scientific computing with Python.
 - [matplotlib](http://matplotlib.org) is a library to plot graphs in Python.
 - [h5py](http://www.h5py.org) is a common package to interact with a dataset that is stored on an H5 file.
@@ -18,13 +13,8 @@ I would first import all the packages that I need during this Project.
 
 
 ```python
-import time
-import numpy as np
-import h5py
 import matplotlib.pyplot as plt
-import scipy
-from PIL import Image
-from scipy import ndimage
+import numpy as np
 from dnn_app_utils_v2 import *
 
 %matplotlib inline
@@ -103,7 +93,7 @@ print ("test_y shape: " + str(test_y.shape))
     
 
 As usual, I have to reshape and standardize the images before feeding them to the network. The code is given in the cell below.
-
+![png](imvectorkiank.png)
 <img src="images/imvectorkiank.png" style="width:450px;height:300px;">
 
 <caption><center> <u>Figure 1</u>: Image to vector conversion. <br> </center></caption>
@@ -142,7 +132,7 @@ then I will compare the performance of these models, and also try out different 
 Let's look at the two architectures.
 
 ### 3.1 - 2-layer neural network
-
+![png](2layerNN_kiank.png)
 <img src="images/2layerNN_kiank.png" style="width:650px;height:400px;">
 <caption><center> <u>Figure 2</u>: 2-layer neural network. <br> The model can be summarized as: ***INPUT -> LINEAR -> RELU -> LINEAR -> SIGMOID -> OUTPUT***. </center></caption>
 
@@ -155,7 +145,7 @@ Let's look at the two architectures.
 - Finally, I have take the sigmoid of the result. If it is greater than 0.5, I would classify it to be a cat.
 
 ### 3.2 - L-layer deep neural network
-
+![png](LlayerNN_kiank.png)
 It is hard to represent an L-layer deep neural network with the above representation. However, here is a simplified network representation:
 
 <img src="images/LlayerNN_kiank.png" style="width:650px;height:400px;">
@@ -237,9 +227,9 @@ def two_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 
     (n_x, n_h, n_y) = layers_dims
     
     # Initialize parameters dictionary, by calling one of the functions I'd previously implemented
-
+    ### START CODE HERE ### (≈ 1 line of code)
     parameters = initialize_parameters(n_x, n_h, n_y)
-
+    ### END CODE HERE ###
     
     # Get W1, b1, W2 and b2 from the dictionary parameters.
     W1 = parameters["W1"]
@@ -252,24 +242,24 @@ def two_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 
     for i in range(0, num_iterations):
 
         # Forward propagation: LINEAR -> RELU -> LINEAR -> SIGMOID. Inputs: "X, W1, b1". Output: "A1, cache1, A2, cache2".
-
+        ### START CODE HERE ### (≈ 2 lines of code)
         A1, cache1 = linear_activation_forward(X, W1, b1, "relu")
         A2, cache2 = linear_activation_forward(A1, W2, b2, "sigmoid")
-
+        ### END CODE HERE ###
         
         # Compute cost
-
+        ### START CODE HERE ### (≈ 1 line of code)
         cost = compute_cost(A2, Y)
-
+        ### END CODE HERE ###
         
         # Initializing backward propagation
         dA2 = - (np.divide(Y, A2) - np.divide(1 - Y, 1 - A2))
         
         # Backward propagation. Inputs: "dA2, cache2, cache1". Outputs: "dA1, dW2, db2; also dA0 (not used), dW1, db1".
-
+        ### START CODE HERE ### (≈ 2 lines of code)
         dA1, dW2, db2 = linear_activation_backward(dA2, cache2, "sigmoid")
         dA0, dW1, db1 = linear_activation_backward(dA1, cache1, "relu")
-
+        ### END CODE HERE ###
         
         # Set grads['dWl'] to dW1, grads['db1'] to db1, grads['dW2'] to dW2, grads['db2'] to db2
         grads['dW1'] = dW1
@@ -278,9 +268,9 @@ def two_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 
         grads['db2'] = db2
         
         # Update parameters.
-
+        ### START CODE HERE ### (approx. 1 line of code)
         parameters = update_parameters(parameters, grads, learning_rate)
-
+        ### END CODE HERE ###
 
         # Retrieve W1, b1, W2, b2 from parameters
         W1 = parameters["W1"]
@@ -455,32 +445,32 @@ def L_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 30
     costs = []                         # keep track of cost
     
     # Parameters initialization.
-
+    ### START CODE HERE ###
     parameters = initialize_parameters_deep(layers_dims)
-
+    ### END CODE HERE ###
     
     # Loop (gradient descent)
     for i in range(0, num_iterations):
 
         # Forward propagation: [LINEAR -> RELU]*(L-1) -> LINEAR -> SIGMOID.
-
+        ### START CODE HERE ### (≈ 1 line of code)
         AL, caches = L_model_forward(X, parameters)
-
+        ### END CODE HERE ###
         
         # Compute cost.
-
+        ### START CODE HERE ### (≈ 1 line of code)
         cost = compute_cost(AL, Y)
-
+        ### END CODE HERE ###
     
         # Backward propagation.
- 
+        ### START CODE HERE ### (≈ 1 line of code)
         grads = L_model_backward(AL, Y, caches)
-
+        ### END CODE HERE ###
  
         # Update parameters.
-
+        ### START CODE HERE ### (≈ 1 line of code)
         parameters = update_parameters(parameters, grads, learning_rate)
-
+        ### END CODE HERE ###
                 
         # Print the cost every 100 training example
         if print_cost and i % 100 == 0:
@@ -610,7 +600,7 @@ print_mislabeled_images(classes, test_x, test_y, pred_test)
 ```
 
 
-![png](output_38_0.png)
+![png][]
 
 
 **A few type of images the model tends to do poorly on include:** 
@@ -622,10 +612,10 @@ print_mislabeled_images(classes, test_x, test_y, pred_test)
 - Scale variation (cat is very large or small in image) 
 
 ```python
-
+## START CODE HERE ##
 my_image = "roller_cat.jpg" # change this to the name of my image file 
 my_label_y = [1] # the true class of my image (1 -> cat, 0 -> non-cat)
-
+## END CODE HERE ##
 
 fname = "images/" + my_image
 image = np.array(ndimage.imread(fname, flatten=False))
@@ -647,3 +637,6 @@ print ("y = " + str(np.squeeze(my_predicted_image)) + ", my L-layer model predic
 **References**:
 
 - for auto-reloading external module: http://stackoverflow.com/questions/1907993/autoreload-of-modules-in-ipython
+
+
+[]: output_38_0.png
