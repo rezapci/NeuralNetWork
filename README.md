@@ -8,7 +8,7 @@ Created on Sun Jun 21 11:35:18 2019
 
 
 
-Let's first import all the packages that I will need during this Project. 
+I would first import all the packages that I need during this Project. 
 - [numpy](www.numpy.org) is the fundamental package for scientific computing with Python.
 - [matplotlib](http://matplotlib.org) is a library to plot graphs in Python.
 - [h5py](http://www.h5py.org) is a common package to interact with a dataset that is stored on an H5 file.
